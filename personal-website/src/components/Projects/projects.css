@@ -1,0 +1,48 @@
+/* src/components/Projects/Projects.css */
+.projects-container {
+    padding: 20px;
+    padding-top: 10vh;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    /* Align text to the left */
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Align items to the left */
+}
+
+.project-item {
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    /* Ensures items take full width */
+    margin-bottom: 20px;
+    /* Adds space between items */
+}
+
+.project-item h3 {
+    font-size: 1.25rem;
+    color: #0077b6;
+    margin-bottom: 10px;
+}
+
+.project-item p {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.project-item a {
+    color: #0077b6;
+    text-decoration: none;
+}
+
+.project-item a:hover {
+    color: #005f8c;
+}

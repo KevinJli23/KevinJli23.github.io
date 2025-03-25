@@ -1,11 +1,17 @@
 import './App.css'
+import Header from './components/Header/Header';
+import ScrollableResume from './components/ScrollableResume/ScrollableResume';
+import Projects from './components/Projects/projects';
+
 
 function App() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
-      <h1 className="text-4xl font-bold">Welcome to My GitHub Pages</h1>
-      <p className="text-lg mt-4">This site is built with React, TypeScript, Tailwind CSS, and Vite!</p>
-    </div>
+    <div>
+      <Header></Header>
+      <Projects></Projects>
+      <ScrollableResume></ScrollableResume>
+      <p><a href="https://www.linkedin.com/in/kevinjianhli23">Linkedin</a></p>
+    </div >
   );
 }
 export default App;
