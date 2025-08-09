@@ -1,19 +1,18 @@
-/* src/components/Projects/Projects.css */
 .projects-container {
-    padding: 20px;
-    padding-top: 10vh;
+    padding: 10px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    /* Align text to the left */
+    text-align: center;
+    width: 100%;
+    margin: 0 0;
+    box-sizing: border-box;
 }
 
 .projects-list {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    /* Align items to the left */
+    align-items: stretch;
 }
 
 .project-item {
@@ -21,10 +20,9 @@
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 95%;
-    /* Ensures items take full width */
+    width: 100%;
     margin-bottom: 20px;
-    /* Adds space between items */
+    box-sizing: border-box;
 }
 
 .project-item h3 {
@@ -45,4 +43,53 @@
 
 .project-item a:hover {
     color: #005f8c;
+}
+
+.project-image {
+    height: 300px;
+    width: 300px;
+}
+
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+    .projects-container {
+        background-color: #333;
+        /* Dark background for container */
+        color: white;
+        /* White text color */
+    }
+
+    .project-item {
+        background-color: #444;
+        /* Dark background for project items */
+        color: white;
+        /* White text color in project items */
+        box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+        /* Light shadow for contrast */
+    }
+
+    .project-item h3 {
+        color: #66aaff;
+        /* Light blue for headings in dark mode */
+    }
+
+    .project-item p {
+        color: #ddd;
+        /* Light gray for paragraph text */
+    }
+
+    .project-item a {
+        color: #66aaff;
+        /* Light blue for links */
+    }
+
+    .project-item a:hover {
+        color: #bbd9ff;
+        /* Lighter blue for hover effect */
+    }
+
+    .project-image {
+        border: 2px solid #444;
+        /* Dark border for images */
+    }
 }

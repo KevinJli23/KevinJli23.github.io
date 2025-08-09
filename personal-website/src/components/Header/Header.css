@@ -1,19 +1,21 @@
-/* Background Image Container */
-.header-section {
-    position: absolute;
-    width: 100%;
-    background: url('/personal-website/dist/mountainView.png')
-}
-
-/* Header Styling */
+/* Header Styling - Fixed at Top with Blurred Background */
 .header {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
+
     width: 100%;
     background: rgba(0, 0, 255, 0.7);
-    padding: 16px 0;
+    padding: 2px;
     text-align: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+}
+
+Push content down to avoid overlap body {
+    padding-top: 60px;
 }
 
 /* Navigation List */
@@ -30,7 +32,7 @@
 .nav-list li a {
     color: white;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     transition: 0.3s;
 }
@@ -39,6 +41,7 @@
     text-decoration: underline;
 }
 
+/* Centered Content */
 .header-content {
     position: absolute;
     top: 50%;

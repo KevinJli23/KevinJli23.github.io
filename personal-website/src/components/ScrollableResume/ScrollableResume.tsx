@@ -91,29 +91,36 @@ const ScrollableResume: React.FC = () => {
     ];
 
     return (
-        <div className="resume-container">
-            <div className="scrollable-header">
-                <h1>Resume</h1>
-                <h2>Kevin Li</h2>
-                <p>Software Engineer</p>
+
+        <div className="scrollable-header">
+            <h1>Resume</h1>
+            <div className="loader">
+                <div className="words">
+                    <div className="word-list">
+                        <span className="word">Software Engineer Intern</span>
+                        <span className="word">Network Operations Intern</span>
+                        <span className="word">Market Data Analysis Intern</span>
+                        <span className="word">Data Analysis Intern</span>
+                        <span className="word">Instructor and Competitive Coach</span>
+                        <span className="word">House System Research Assistant</span>
+                        <span className="word">Software Engineer Intern</span>
+                    </div>
+                </div>
             </div>
-
             <Section title="Experience">
-                {experienceData.map((job, index) => (
-                    <Job
-                        key={index}
-                        title={job.title}
-                        date={job.date}
-                        location={job.location}
-                        description={job.description}
-                    />
-                ))}
+                <div className="resume-container">
+                    {experienceData.map((job, index) => (
+                        <Job
+                            key={index}
+                            title={job.title}
+                            date={job.date}
+                            location={job.location}
+                            description={job.description}
+                        />
+                    ))}
+                </div>
             </Section>
-
-            <Section title="Education">
-                <p>UC Irvine - B.S. in Software Engineering (June 2025)</p>
-            </Section>
-        </div>
+        </div >
     );
 };
 
