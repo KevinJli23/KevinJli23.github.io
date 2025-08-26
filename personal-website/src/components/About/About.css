@@ -17,3 +17,19 @@
         /* Light shadow for contrast */
     }
 }
+
+
+/*pictures in about me section*/
+.image-row {
+  display: flex;
+  justify-content: center; /* center the row horizontally */
+  gap: 20px; /* spacing between images */
+  flex-wrap: wrap; /* wrap to next line on small screens */
+}
+
+.image-row img {
+  width: 30%; /* roughly one-third each */
+  max-width: 100%; /* prevent overflow */
+  height: auto; /* maintain aspect ratio */
+  border-radius: 8px; /* optional styling */
+}

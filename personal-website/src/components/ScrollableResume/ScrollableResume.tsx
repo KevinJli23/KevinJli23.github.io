@@ -89,9 +89,8 @@ const ScrollableResume: React.FC = () => {
             ]
         }
     ];
-
     return (
-
+        <div className="resume-section"> 
         <div className="scrollable-header">
             <h1>Resume</h1>
             <div className="loader">
@@ -121,6 +120,7 @@ const ScrollableResume: React.FC = () => {
                 </div>
             </Section>
         </div >
+        </div>
     );
 };
 

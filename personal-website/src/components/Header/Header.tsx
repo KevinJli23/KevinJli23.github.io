@@ -9,7 +9,7 @@ const Header: React.FC = () => {
                         <li><a href="#About">About</a></li>
                         <li><a href="#Resume">Resume</a></li>
                         <li><a href="#Projects">Projects</a></li>
-                        {/* <li><a href="#Skills">Skills</a></li> */}
+                      
                     </ul>
                 </nav>
             </header>

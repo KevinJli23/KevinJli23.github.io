@@ -1,5 +1,10 @@
 /* ScrollableResume Component CSS */
 
+.resume-section{background-color: aliceblue;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px 8px rgba(0, 0, 0, 0.1);}
 .resume-container {
     background-color: aliceblue;
     color: black;

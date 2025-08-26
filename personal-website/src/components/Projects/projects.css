@@ -1,12 +1,9 @@
-.projects-container {
-    padding: 10px;
-    background-color: #f9f9f9;
+.projects-section {
+    background-color: aliceblue;
+    color: black;
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 100%;
-    margin: 0 0;
-    box-sizing: border-box;
+    box-shadow: 0 4px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .projects-list {
@@ -46,9 +43,14 @@
 }
 
 .project-image {
-    height: 300px;
-    width: 300px;
+  width: 300px;       /* control size */
+  height: auto;       /* keep aspect ratio */
+  border: 3px solid #4CAF50; /* green border */
+  border-radius: 12px; /* rounded corners */
+  padding: 4px;        /* space between image and border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* subtle shadow */
 }
+
 
 /* Dark Mode Styles */
 @media (prefers-color-scheme: dark) {

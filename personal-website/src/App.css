@@ -14,8 +14,6 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
   height: 100%;
   /* Make sure body fills the entire screen */
   display: flex;
@@ -24,9 +22,7 @@ body {
 }
 
 /* Add padding and ensure spacing between sections */
-.spacing {
-  padding-top: 0;
-}
+
 
 section {
   height: 100vh;
@@ -37,17 +33,17 @@ section {
   /* Vertically center content */
   align-items: center;
   /* Horizontally center content */
-  text-align: center;
-  scroll-margin-top: 50px;
-  /* Keep scroll smooth */
-}
+  text-align: center;}
 
-/* Optional styles to make sure content is readable on smaller screens */
-@media (max-width: 768px) {
+/* When section content is taller than viewport, align to top */
+@media (max-height: 1000px) { /* or adjust as needed */
   section {
-    height: auto;
-    padding: 20px;
+    justify-content: flex-start;
+    padding-top: 44px; /* optional spacing from top */
   }
+
+
+
 }
 
 .footer {
