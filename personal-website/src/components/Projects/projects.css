@@ -1,97 +1,212 @@
-.projects-section {
-    background-color: aliceblue;
-    color: black;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 4px 8px rgba(0, 0, 0, 0.1);
+/* ── Theme Variables (Synced with About Section) ───────────────── */
+:root {
+  --project-bg: #85a3c0;
+  --project-surface: #ffffff;
+  --project-border: #e2e8f0;
+  --project-text-h: #1e293b;
+  --project-text-sub: #64748b;
+  --project-text-body: #475569;
+  --project-badge-bg: #f1f5f9;
+  --project-badge-text: #334155;
+  --project-link: #1D9E75; /* Using the green accent from About border */
+  --project-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-.projects-list {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+/* 🌙 Dark Mode */
+[data-theme="dark"] :root,
+[data-theme="dark"] {
+  --project-bg: #0f172a;
+  --project-surface: #1e293b;
+  --project-border: #334155;
+  --project-text-h: #f1f5f9;
+  --project-text-sub: #94a3b8;
+  --project-text-body: #94a3b8;
+  --project-badge-bg: #334155;
+  --project-badge-text: #e2e8f0;
+  --project-link: #1D9E75;
+  --project-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
 }
 
-.project-item {
-    padding: 15px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-}
-
-.project-item h3 {
-    font-size: 1.25rem;
-    color: #0077b6;
-    margin-bottom: 10px;
-}
-
-.project-item p {
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.project-item a {
-    color: #0077b6;
-    text-decoration: none;
-}
-
-.project-item a:hover {
-    color: #005f8c;
-}
-
-.project-image {
-  width: 300px;       /* control size */
-  height: auto;       /* keep aspect ratio */
-  border: 3px solid #4CAF50; /* green border */
-  border-radius: 12px; /* rounded corners */
-  padding: 4px;        /* space between image and border */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* subtle shadow */
-}
-
-
-/* Dark Mode Styles */
 @media (prefers-color-scheme: dark) {
-    .projects-container {
-        background-color: #333;
-        /* Dark background for container */
-        color: white;
-        /* White text color */
-    }
+  :root:not([data-theme="light"]) {
+    --project-bg: #0f172a;
+    --project-surface: #1e293b;
+    --project-border: #334155;
+    --project-text-h: #f1f5f9;
+    --project-text-sub: #94a3b8;
+    --project-text-body: #94a3b8;
+    --project-badge-bg: #334155;
+    --project-badge-text: #e2e8f0;
+    --project-link: #1D9E75;
+    --project-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  }
+}
 
-    .project-item {
-        background-color: #444;
-        /* Dark background for project items */
-        color: white;
-        /* White text color in project items */
-        box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-        /* Light shadow for contrast */
-    }
+/* ── Full Width Background Wrapper ────────────────────────────── */
+.project-resume {
+  width: 100%;
+  background: var(--project-bg);
+  padding: 60px 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  border-radius: 16px;
+}
 
-    .project-item h3 {
-        color: #66aaff;
-        /* Light blue for headings in dark mode */
-    }
+/* ── Content Centering ────────────────────────────────────────── */
+.project-hero, 
+.project-track {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
 
-    .project-item p {
-        color: #ddd;
-        /* Light gray for paragraph text */
-    }
+/* ── Header ────────────────────────────────────────────────── */
+.project-hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
 
-    .project-item a {
-        color: #66aaff;
-        /* Light blue for links */
-    }
+.project-heading {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--project-text-h);
+  margin: 0 0 12px 0;
+  letter-spacing: -0.04em;
+}
 
-    .project-item a:hover {
-        color: #bbd9ff;
-        /* Lighter blue for hover effect */
-    }
+.project-subheading {
+  font-size: 20px;
+  color: var(--project-text-sub);
+}
 
-    .project-image {
-        border: 2px solid #444;
-        /* Dark border for images */
-    }
+/* ── The Grid ──────────────────────────────────────────────── */
+.project-track {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
+  gap: 32px;
+}
+
+/* ── The Card (Fixed Height, Flexible Width) ────────────────── */
+.project-card {
+  background: var(--project-surface);
+  border: 1px solid var(--project-border);
+  border-left: 8px solid #1D9E75;
+  border-radius: 24px;
+  padding: 40px;
+  
+  /* Vertical Constraint & Scroll */
+  height: 450px; /* Adjusted slightly taller to accommodate images */
+  overflow-y: auto;
+  
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--project-shadow);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Image ─────────────────────────────────────────────────── */
+.project-photo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px solid var(--project-border);
+  flex-shrink: 0;
+}
+
+/* ── Content Typography ────────────────────────────────────── */
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.project-badge {
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  background: var(--project-badge-bg);
+  color: var(--project-badge-text);
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--project-text-h);
+  margin: 0;
+}
+
+.project-subtitle {
+  font-size: 16px;
+  color: var(--project-text-sub);
+  margin: 4px 0 16px 0;
+  font-weight: 500;
+}
+
+.project-body {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--project-text-body);
+  margin-bottom: 20px;
+}
+
+/* ── Links & Footer ───────────────────────────────────────── */
+.project-link {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--project-link);
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+.project-hint {
+  font-size: 13px;
+  color: var(--project-text-sub);
+  margin-top: 12px;
+  font-style: italic;
+}
+
+/* ── Custom Scrollbar ─────────────────────────────────────── */
+.project-card::-webkit-scrollbar {
+  width: 6px;
+}
+.project-card::-webkit-scrollbar-thumb {
+  background: var(--project-border);
+  border-radius: 10px;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 950px) {
+  .project-track {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+  
+  .project-heading {
+    font-size: 2.8rem;
+  }
+  
+  .project-card {
+    height: auto;
+    min-height: 350px;
+    padding: 32px;
+  }
 }

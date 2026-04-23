@@ -1,55 +1,61 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  /* Center the root element horizontally */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  /* Prevent horizontal scroll */
   height: 100%;
-  /* Ensure the html element takes full height */
 }
 
 body {
-  height: 100%;
-  /* Make sure body fills the entire screen */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  overflow-x: hidden;
 }
 
-/* Add padding and ensure spacing between sections */
 
-
-section {
-  height: 100vh;
-  /* Each section takes full screen height */
+/* section {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* Vertically center content */
   align-items: center;
-  /* Horizontally center content */
-  text-align: center;}
+  text-align: center;
+} */
+section {
+  margin-left:50px;
+  margin-right:50px;
+  display: flex;
+  padding: 80px 20px; /* gives breathing room */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
 /* When section content is taller than viewport, align to top */
 @media (max-height: 1000px) { /* or adjust as needed */
   section {
     justify-content: flex-start;
-    padding-top: 44px; /* optional spacing from top */
+    padding-top: 64px; /* optional spacing from top */
+  }
+  section#Home {
+    justify-content: center;
+    padding-top: 0;
   }
 
 
 
 }
 
-.footer {
-
-  padding: 30px;
-  text-align: center;
-  width: 100%;
-  margin-top: auto;
-}

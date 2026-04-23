@@ -1,19 +1,17 @@
-import "./Header.css"; // Import the CSS file
+import "./Header.css";
 
 const Header: React.FC = () => {
-    return (
-        <div className="head-section">
-            <header className="header">
-                <nav>
-                    <ul className="nav-list">
-                        <li><a href="#About">About</a></li>
-                        <li><a href="#Resume">Resume</a></li>
-                        <li><a href="#Projects">Projects</a></li>
-                      
-                    </ul>
-                </nav>
-            </header>
-        </div>
-    );
+  return (
+    <header className="header">
+      <nav>
+        <ul className="nav-list">
+          <li><a href="#About">About</a></li>
+          <li><a href="#Resume">Experience</a></li>
+          <li><a href="#Projects">Projects</a></li>
+        </ul>
+      </nav>
+    </header>
+  );
 };
+
 export default Header;

@@ -1,35 +1,209 @@
-.about-section {
-    background-color: aliceblue;
-    color: black;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 4px 8px rgba(0, 0, 0, 0.1);
+/* ── Theme Variables ─────────────────────────────────────────── */
+:root {
+  --about-bg: #85a3c0;
+  --about-surface: #ffffff;
+  --about-border: #e2e8f0;
+  --about-text-h: #1e293b;
+  --about-text-sub: #64748b;
+  --about-text-body: #475569;
+  --about-text-strong: #1e293b;
+  --about-photo-border: #e2e8f0;
+  --about-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-/* Dark Mode Styles */
+/* 🌙 Dark Mode */
+[data-theme="dark"] :root,
+[data-theme="dark"] {
+  --about-bg: #0f172a;
+  --about-surface: #1e293b;
+  --about-border: #334155;
+  --about-text-h: #f1f5f9;
+  --about-text-sub: #94a3b8;
+  --about-text-body: #94a3b8;
+  --about-text-strong: #f1f5f9;
+  --about-photo-border: #334155;
+  --about-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
 @media (prefers-color-scheme: dark) {
-    .about-section {
-        background-color: #333;
-        /* Dark background for section */
-        color: white;
-        /* White text color */
-        box-shadow: 0 4px 4px 8px rgba(255, 255, 255, 0.1);
-        /* Light shadow for contrast */
-    }
+  :root:not([data-theme="light"]) {
+    --about-bg: #0f172a;
+    --about-surface: #1e293b;
+    --about-border: #334155;
+    --about-text-h: #f1f5f9;
+    --about-text-sub: #94a3b8;
+    --about-text-body: #94a3b8;
+    --about-text-strong: #f1f5f9;
+    --about-photo-border: #334155;
+    --about-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  }
 }
 
+/* ── Full Width Background Wrapper ────────────────────────────── */
+.about-resume {
+  width: 100%;               /* Spans container width */
+  background: var(--about-bg);
+  padding: 40px 0;           /* Balanced vertical padding */
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  border-radius: 16px;
+}
 
-/*pictures in about me section*/
-.image-row {
+/* ── Content Centering (The "Inner" Container) ───────────────── */
+.about-hero, 
+.about-track {
+  max-width: 1200px;         /* Keeps cards from getting too wide */
+  margin-left: auto;         /* Center horizontally */
+  margin-right: auto;        /* Center horizontally */
+  padding: 0 32px;           /* Side padding so cards don't hit screen edge */
+  box-sizing: border-box;
+}
+
+/* ── Header ────────────────────────────────────────────────── */
+.about-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-heading {
+  font-size: 3.5rem;         /* Bold and Big */
+  font-weight: 800;
+  color: var(--about-text-h);
+  margin: 0 0 12px 0;
+  letter-spacing: -0.04em;
+}
+
+.about-subheading {
+  font-size: 20px;
+  color: var(--about-text-sub);
+}
+
+/* ── The Grid (Consistent Heights) ─────────────────────────── */
+.about-track {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;       /* All cards in a row match height */
+  gap: 32px;                 /* Space between cards */
+}
+
+/* ── The Card ──────────────────────────────────────────────── */
+.about-card {
+  background: var(--about-surface);
+  border: 1px solid var(--about-border);
+  border-left: 8px solid #1D9E75;
+  border-radius: 24px;
+  padding: 48px;             /* Large internal padding */
+  
   display: flex;
-  justify-content: center; /* center the row horizontally */
-  gap: 20px; /* spacing between images */
-  flex-wrap: wrap; /* wrap to next line on small screens */
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--about-shadow);
+  box-sizing: border-box;
 }
 
-.image-row img {
-  width: 30%; /* roughly one-third each */
-  max-width: 100%; /* prevent overflow */
-  height: auto; /* maintain aspect ratio */
-  border-radius: 8px; /* optional styling */
+.about-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Content Typography ────────────────────────────────────── */
+.about-meta {
+  margin-bottom: 24px;
+}
+
+.about-badge {
+  font-size: 14px;
+  font-weight: 800;
+  padding: 8px 16px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.about-body {
+  font-size: 20px;           /* Large, readable text */
+  line-height: 1.8;
+  color: var(--about-text-body);
+  margin: 0;
+}
+
+.about-body strong {
+  color: var(--about-text-strong);
+  font-weight: 700;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 950px) {
+  .about-track {
+    grid-template-columns: 1fr; /* Stack cards on mobile */
+    grid-auto-rows: auto;      /* Natural height when stacked */
+    padding: 0 20px;           /* Slightly less padding on mobile */
+  }
+  
+  .about-heading {
+    font-size: 2.8rem;
+  }
+  
+  .about-card {
+    padding: 32px;            /* Tighter padding on smaller screens */
+  }
+}
+
+/* Clean up legacy elements */
+.about-track::before, .about-dot {
+  display: none !important;
+}
+
+/* ── The Grid (Now allows horizontal expansion) ─────────────────── */
+.about-track {
+  display: grid;
+  /* Maintain two columns on desktop */
+  grid-template-columns: repeat(2, 1fr); 
+  /* Remove the 1fr auto-row to stop cards from stretching vertically */
+  grid-auto-rows: auto; 
+  gap: 32px;
+  max-width: 1400px; /* Increased max-width to allow more expansion */
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── The Card (Fixed Height, Flexible Width) ────────────────────── */
+.about-card {
+  background: var(--about-surface);
+  border: 1px solid var(--about-border);
+  border-left: 8px solid #1D9E75;
+  border-radius: 24px;
+  padding: 40px;
+  
+  /* --- Vertical Constraint --- */
+  height: 350px;            /* Set your desired constant height here */
+  overflow-y: auto;         /* Adds a scrollbar if text is too long for the height */
+  
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--about-shadow);
+  box-sizing: border-box;
+}
+
+/* Custom Scrollbar for the cards (Optional, for better UX) */
+.about-card::-webkit-scrollbar {
+  width: 6px;
+}
+.about-card::-webkit-scrollbar-thumb {
+  background: var(--about-border);
+  border-radius: 10px;
+}
+
+/* ── Responsive Adjustment ────────────────────────────────────── */
+@media (max-width: 950px) {
+  .about-track {
+    grid-template-columns: 1fr; 
+  }
+  
+  .about-card {
+    height: auto;           /* On mobile, it's usually better to let height be natural */
+    min-height: 280px;      /* ...but keep a minimum feel */
+  }
 }
