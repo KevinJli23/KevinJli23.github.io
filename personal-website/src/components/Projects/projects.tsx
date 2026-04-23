@@ -43,7 +43,6 @@ const Projects: React.FC = () => {
     <div className="project-resume">
       <div className="project-hero">
         <h1 className="project-heading">Projects</h1>
-        <p className="project-subheading">Click to expand</p>
       </div>
 
       <div className="project-track">
@@ -86,10 +85,6 @@ const Projects: React.FC = () => {
                     View Project →
                   </a>
                 </div>
-
-                {!isOpen && (
-                  <p className="project-hint">click to expand</p>
-                )}
               </div>
             </div>
           );

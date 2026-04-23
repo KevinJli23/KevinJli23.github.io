@@ -44,6 +44,11 @@ section {
   text-align: center;
 }
 
+ section#Home {
+    justify-content: center;
+    padding-top: 0;
+  }
+
 /* When section content is taller than viewport, align to top */
 @media (max-height: 1000px) { /* or adjust as needed */
   section {
