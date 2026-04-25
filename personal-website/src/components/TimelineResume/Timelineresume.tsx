@@ -15,28 +15,93 @@ interface JobEntry {
 }
 
 const experienceData: JobEntry[] = [
-  { id: "1", title: "AI Agentic Builder Intern", company: "NeuralSeek", date: "Jul–Sept 2025", location: "Irvine, CA", type: "ai", label: "AI", bullets: ["Building autonomous agents for enterprise workflows."] },
-  { id: "2", title: "Software Engineer Intern", company: "Turion Space Systems", date: "Jan–Mar 2025", location: "Irvine, CA", type: "space", label: "Space Tech", bullets: ["Improved satellite task efficiency by 25%.", "Built 5+ ground control dashboards.", "Standardized UI development in React."] },
-  { id: "3", title: "Network Operations Intern", company: "LADWP", date: "Aug 2024–Jun 2025", location: "Anaheim, CA", type: "network", label: "Networks", bullets: ["Automated 1,300+ network nodes via Python.", "Implemented real-time SMTP monitoring."] },
-  { id: "4", title: "Market Data Analysis Intern", company: "Econolite", date: "Jan–May 2024", location: "Anaheim, CA", type: "data", label: "Data", bullets: ["Analyzed 30,000+ invoices for clustering.", "Built responsive maps with Folium."] },
-  { id: "5", title: "Research Assistant", company: "UC Irvine", date: "Aug 2023–Feb 2025", location: "Irvine, CA", type: "research", label: "Research", bullets: ["Extracted clinical data for medical studies.", "Developed SQL queries for UCI Health."] },
-  { id: "6", title: "Web Administrator", company: "Community Table", date: "Aug 2023–Sep 2024", location: "Irvine, CA", type: "web", label: "Web", bullets: ["Led development for 40+ members.", "Managed content and site performance."] },
   {
-    id: "7",
+    id: "1",
+    title: "AI Agentic Builder Intern",
+    company: "NeuralSeek",
+    date: "Jul 2025–Sept 2025",
+    location: "Irvine, CA",
+    type: "ai",
+    label: "AI",
+    bullets: [
+      "Completed NeuralSeek AI Agent Certifications (L1–L3), gaining expertise in agent design, business applications, and multi-agent systems",
+      "Designed an AI workout planner that generates structured, queryable fitness plans with a focus on personalization and usability",
+      "Integrated external datasets using NLP, embeddings, RAG, and prompt engineering to improve search capability and response accuracy",
+    ],
+  },
+  {
+    id: "2",
+    title: "Software Engineer Intern",
+    company: "Turion Space Systems",
+    date: "Jan–Mar 2025",
+    location: "Irvine, CA",
+    type: "space",
+    label: "Space Tech",
+    bullets: [
+      "Integrated real-time data visualization for 500+ satellite telemetry points across 6 dashboards to monitor health and detect anomalies",
+      "Built a reusable component framework with React and Rete.js to standardize API handling and UI patterns",
+      "Designed an interactive UI with Rete.js to improve task efficiency and operational responsiveness",
+      "Developed React pages for scheduling and managing automated tasks, enhancing usability for operations engineers",
+    ],
+  },
+  {
+    id: "3",
+    title: "Network Operations Intern",
+    company: "LADWP",
+    date: "Aug 2024–Jun 2025",
+    location: "Anaheim, CA",
+    type: "network",
+    label: "Networks",
+    bullets: [
+      "Developed a Python-based network monitoring tool to automate node traversal and document device configurations across enterprise infrastructure",
+      "Engineered a multithreaded service to collect data from 1,300+ devices, aggregating hardware configurations into structured reports",
+      "Improved network reliability with event-driven error detection and SMTP alerts to proactively notify engineers of failures",
+      "Configured CIP servers using vSphere and Remote Desktop, handling network setup, security hardening, and firewall configuration to enhance scalability and efficiency",
+    ],
+  },
+  {
+    id: "4",
+    title: "Market Data Analysis Intern",
+    company: "Econolite",
+    date: "Jan–May 2024",
+    location: "Anaheim, CA",
+    type: "data",
+    label: "Data",
+    bullets: [
+      "Built a geospatial data pipeline using Python and geocoding APIs to process 30,000+ invoice records and standardize location data",
+      "Engineered a GUI to automate geocoding with under 1s per record throughput and implemented anomaly detection for 95% accuracy",
+      "Designed an interactive mapping dashboard with Folium and JavaScript to visualize geographic clusters and uncover regional sales opportunities",
+    ],
+  },
+  {
+    id: "5",
     title: "House System Research Assistant",
-    company: "UC Irvine — Donald Bren School of ICS",
+    company: "UC Irvine",
     date: "Aug 2023–Feb 2025",
     location: "Irvine, CA",
     type: "research",
     label: "Research",
     bullets: [
-      "Extracted data from the UCI Health Clinical Data Warehouse.",
-      "Developed SQL queries for the UCI Health database.",
-      "Managed research data in REDCap for medical studies.",
+      "Entered and managed research data using REDCap to support large-scale sociological and medical studies within the UC system",
+      "Extracted and consolidated data from sources including the UCI Health Clinical Data Warehouse for multiple research projects",
+      "Collaborated with researchers across departments to develop SQL queries and support critical data extraction for research initiatives",
     ],
   },
   {
-    id: "8",
+    id: "6",
+    title: "Web Administrator",
+    company: "Community Table",
+    date: "Aug 2023–Sep 2024",
+    location: "Irvine, CA",
+    type: "web",
+    label: "Web",
+    bullets: [
+      "Led development for 40+ members.",
+      "Managed content and site performance.",
+    ],
+  },
+  {
+    id: "7",
     title: "Data Analyst Intern",
     company: "OCHIN, Inc.",
     date: "Jun 2023–Sep 2023",
@@ -44,8 +109,9 @@ const experienceData: JobEntry[] = [
     type: "data",
     label: "Data",
     bullets: [
-      "Analyzed healthcare datasets of 20,000+ patients.",
-      "Used Matplotlib to visualize population screening needs.",
+      "Analyzed a healthcare dataset of 20,000+ patients across 82 conditions to identify candidates for risk score reevaluation",
+      "Identified outdated risk scores across 44,000+ cases, highlighting gaps in accurately reflecting current patient health status",
+      "Used Matplotlib to visualize insights and communicate populations that could benefit from targeted screening initiatives",
     ],
   },
 ];
@@ -63,19 +129,24 @@ const TimelineResume: React.FC = () => {
   const [filter, setFilter] = useState<JobType | "all">("all");
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  const filtered = experienceData.filter(j => filter === "all" || j.type === filter);
-  const categories = ["all", ...new Set(experienceData.map(j => j.type))];
+  const filtered = experienceData.filter(
+    (j) => filter === "all" || j.type === filter,
+  );
+  const categories = ["all", ...new Set(experienceData.map((j) => j.type))];
 
   return (
     <div className="resume-container">
       <header className="resume-header">
         <h1>Experience</h1>
         <div className="filter-bar">
-          {categories.map(cat => (
-            <button 
-              key={cat} 
+          {categories.map((cat) => (
+            <button
+              key={cat}
               className={`filter-btn ${filter === cat ? "active" : ""}`}
-              onClick={() => { setFilter(cat as JobType | "all"); setExpandedId(null); }}
+              onClick={() => {
+                setFilter(cat as JobType | "all");
+                setExpandedId(null);
+              }}
             >
               {cat.toUpperCase()}
             </button>
@@ -92,34 +163,45 @@ const TimelineResume: React.FC = () => {
           const colors = palette[job.type];
 
           return (
-            <div key={job.id} className={`timeline-item ${isOpen ? "is-open" : ""}`}>
-              <div 
-                className="timeline-dot" 
+            <div
+              key={job.id}
+              className={`timeline-item ${isOpen ? "is-open" : ""}`}
+            >
+              <div
+                className="timeline-dot"
                 style={{ backgroundColor: colors.dot, top: "12px" }}
               />
-              
-              <div 
+
+              <div
                 className="timeline-card"
                 onClick={() => setExpandedId(isOpen ? null : job.id)}
                 style={{ borderTop: `4px solid ${colors.dot}` }}
               >
                 <div className="card-header">
-                  <span className="job-badge" style={{ background: colors.bg, color: colors.text }}>
+                  <span
+                    className="job-badge"
+                    style={{ background: colors.bg, color: colors.text }}
+                  >
                     {job.label}
                   </span>
                   <span className="job-date">{job.date}</span>
                 </div>
-                
+
                 <h3 className="job-title">{job.title}</h3>
                 <p className="job-company">{job.company}</p>
 
                 <div className="job-content">
                   <ul className="job-bullets">
-                    {job.bullets.map((b, i) => <li key={i}>{b}</li>)}
+                    {job.bullets.map((b, i) => (
+                      <li key={i}>{b}</li>
+                    ))}
                   </ul>
                   <p className="job-location">📍 {job.location}</p>
                 </div>
-                
+
+                <div className="card-chevron-row">
+                  <span className={`card-chevron ${isOpen ? "open" : ""}`}>&#8964;</span>
+                </div>
               </div>
             </div>
           );
