@@ -21,11 +21,6 @@ function App() {
       <section id="Projects">
         <Projects />
       </section>
-      
-      {/* <div className="footer">
-        <a href="https://www.linkedin.com/in/kevinjianhli23">LinkedIn</a> |{' '}
-        <a href="https://github.com/KevinJli23">GitHub</a>
-      </div> */}
     </div>
   );
 }

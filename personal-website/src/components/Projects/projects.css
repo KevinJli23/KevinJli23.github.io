@@ -76,11 +76,6 @@
   letter-spacing: -0.04em;
 }
 
-.project-subheading {
-  font-size: 20px;
-  color: var(--project-text-sub);
-}
-
 /* ── The Grid ──────────────────────────────────────────────── */
 .project-track {
   display: grid;
@@ -175,13 +170,6 @@
 
 .project-link:hover {
   text-decoration: underline;
-}
-
-.project-hint {
-  font-size: 13px;
-  color: var(--project-text-sub);
-  margin-top: 12px;
-  font-style: italic;
 }
 
 /* ── Custom Scrollbar ─────────────────────────────────────── */

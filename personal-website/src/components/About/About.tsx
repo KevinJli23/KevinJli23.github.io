@@ -20,7 +20,6 @@ const About: React.FC = () => {
       <div className="about-track">
 
         <div className="about-item">
-          <div className="about-dot" />
           <div className="about-card">
             <div className="about-meta">
               <span className="about-badge" style={badgeStyles.Education}>
@@ -36,7 +35,6 @@ const About: React.FC = () => {
         </div>
 
         <div className="about-item">
-          <div className="about-dot" />
           <div className="about-card">
             <div className="about-meta">
               <span className="about-badge" style={badgeStyles.Experience}>
@@ -53,7 +51,6 @@ const About: React.FC = () => {
         </div>
 
         <div className="about-item">
-          <div className="about-dot" />
           <div className="about-card">
             <div className="about-meta">
               <span className="about-badge" style={badgeStyles.Interests}>
@@ -69,7 +66,6 @@ const About: React.FC = () => {
         </div>
 
         <div className="about-item">
-          <div className="about-dot" />
           <div className="about-card">
             <div className="about-meta">
               <span className="about-badge" style={badgeStyles.Hobbies}>
@@ -86,11 +82,6 @@ const About: React.FC = () => {
 
       </div>
 
-      {/* <div className="about-photos">
-        <img src="/graduation.png" alt="Graduation" className="about-photo" />
-        <img src="/Presentation.jpg" alt="Presentation" className="about-photo" />
-        <img src="/climbing.jpg" alt="Climbing" className="about-photo" />
-      </div> */}
     </div>
   );
 };

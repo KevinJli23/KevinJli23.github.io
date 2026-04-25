@@ -21,33 +21,33 @@ const experienceData: JobEntry[] = [
   { id: "4", title: "Market Data Analysis Intern", company: "Econolite", date: "Jan–May 2024", location: "Anaheim, CA", type: "data", label: "Data", bullets: ["Analyzed 30,000+ invoices for clustering.", "Built responsive maps with Folium."] },
   { id: "5", title: "Research Assistant", company: "UC Irvine", date: "Aug 2023–Feb 2025", location: "Irvine, CA", type: "research", label: "Research", bullets: ["Extracted clinical data for medical studies.", "Developed SQL queries for UCI Health."] },
   { id: "6", title: "Web Administrator", company: "Community Table", date: "Aug 2023–Sep 2024", location: "Irvine, CA", type: "web", label: "Web", bullets: ["Led development for 40+ members.", "Managed content and site performance."] },
-  { 
-  id: "7", 
-  title: "House System Research Assistant", 
-  company: "UC Irvine — Donald Bren School of ICS", 
-  date: "Aug 2023–Feb 2025", 
-  location: "Irvine, CA", 
-  type: "research", 
-  label: "Research", 
-  bullets: [
-    "Extracted data from the UCI Health Clinical Data Warehouse.",
-    "Developed SQL queries for the UCI Health database.",
-    "Managed research data in REDCap for medical studies."
-  ] 
-},
-{ 
-  id: "8", 
-  title: "Data Analyst Intern", 
-  company: "OCHIN, Inc.", 
-  date: "Jun 2023–Sep 2023", 
-  location: "Portland, OR", 
-  type: "data", 
-  label: "Data", 
-  bullets: [
-    "Analyzed healthcare datasets of 20,000+ patients.",
-    "Used Matplotlib to visualize population screening needs."
-  ] 
-},
+  {
+    id: "7",
+    title: "House System Research Assistant",
+    company: "UC Irvine — Donald Bren School of ICS",
+    date: "Aug 2023–Feb 2025",
+    location: "Irvine, CA",
+    type: "research",
+    label: "Research",
+    bullets: [
+      "Extracted data from the UCI Health Clinical Data Warehouse.",
+      "Developed SQL queries for the UCI Health database.",
+      "Managed research data in REDCap for medical studies.",
+    ],
+  },
+  {
+    id: "8",
+    title: "Data Analyst Intern",
+    company: "OCHIN, Inc.",
+    date: "Jun 2023–Sep 2023",
+    location: "Portland, OR",
+    type: "data",
+    label: "Data",
+    bullets: [
+      "Analyzed healthcare datasets of 20,000+ patients.",
+      "Used Matplotlib to visualize population screening needs.",
+    ],
+  },
 ];
 
 const palette = {
@@ -75,7 +75,7 @@ const TimelineResume: React.FC = () => {
             <button 
               key={cat} 
               className={`filter-btn ${filter === cat ? "active" : ""}`}
-              onClick={() => { setFilter(cat as any); setExpandedId(null); }}
+              onClick={() => { setFilter(cat as JobType | "all"); setExpandedId(null); }}
             >
               {cat.toUpperCase()}
             </button>
@@ -95,7 +95,7 @@ const TimelineResume: React.FC = () => {
             <div key={job.id} className={`timeline-item ${isOpen ? "is-open" : ""}`}>
               <div 
                 className="timeline-dot" 
-                style={{ backgroundColor: colors.dot, top: "12px" }} // Dot is higher (12px vs 20px)
+                style={{ backgroundColor: colors.dot, top: "12px" }}
               />
               
               <div 
@@ -120,7 +120,6 @@ const TimelineResume: React.FC = () => {
                   <p className="job-location">📍 {job.location}</p>
                 </div>
                 
-                {!isOpen && <div className="expand-hint">View Details</div>}
               </div>
             </div>
           );
