@@ -12,14 +12,12 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Sleep Tracker App",
-    subtitle: "Cross-platform sleep tracking",
-    description:
-      "Developed a cross-platform Sleep Tracker application using Ionic and Angular. Features include sleep logging, persistent storage, and interactive visualization.",
-    link: "https://drive.google.com/file/d/1mnPqpEiNOv2-51b8kmSYY14NTcKGodiF/view",
-    image:
-      "https://media.licdn.com/dms/image/v2/D562DAQFsFwgs8K0wxQ/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1701383270617",
-    tags: ["Ionic", "Angular", "TypeScript"],
+    title: "PokeScan (In Progress)",
+    subtitle: "Computer vision for Pokemon detection",
+    description: "",
+    link: "",
+    image: "/project-icons/pokescan_icon.png",
+    tags: ["Angular", "JavaScript", "Handtracking"],
   },
   {
     title: "Gesture Study App",
@@ -27,17 +25,24 @@ const projects: Project[] = [
     description:
       "Built a study web app using Angular and Handtracker.js for gesture-based controls. Includes music playback, timers, and real-time interaction.",
     link: "https://drive.google.com/file/d/1FX-dEx41MvxKseMRdR7lMx-m8DjiLM8G/view",
-    image:
-      "https://media.licdn.com/dms/image/v2/D562DAQHDGYN3pZcIIQ/profile-treasury-image-shrink_800_800/0/1702280810236",
+    image: "/project-icons/gesture-study-app.png",
     tags: ["Angular", "JavaScript", "Handtracking"],
+  },
+  {
+    title: "Sleep Tracker App",
+    subtitle: "Cross-platform sleep tracking",
+    description:
+      "Developed a cross-platform Sleep Tracker application using Ionic and Angular. Features include sleep logging, persistent storage, and interactive visualization.",
+    link: "https://drive.google.com/file/d/1mnPqpEiNOv2-51b8kmSYY14NTcKGodiF/view",
+    image: "/project-icons/sleep_tracker_icon.png",
+    tags: ["Ionic", "Angular", "TypeScript"],
   },
 ];
 
 const Projects: React.FC = () => {
-  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggle = (i: number) =>
-    setExpanded((prev) => ({ ...prev, [i]: !prev[i] }));
+  const toggle = (i: number) => setOpenIndex((prev) => (prev === i ? null : i));
 
   return (
     <div className="project-resume">
@@ -47,7 +52,7 @@ const Projects: React.FC = () => {
 
       <div className="project-track">
         {projects.map((project, i) => {
-          const isOpen = !!expanded[i];
+          const isOpen = openIndex === i;
 
           return (
             <div key={i}>
@@ -66,24 +71,32 @@ const Projects: React.FC = () => {
                 <p className="project-title">{project.title}</p>
                 <p className="project-subtitle">{project.subtitle}</p>
 
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="project-photo"
+                />
+
                 <div className="project-content">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="project-photo"
-                  />
+                  <div className="project-content-inner">
+                    <p className="project-body">{project.description}</p>
 
-                  <p className="project-body">{project.description}</p>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      View Demo →
+                    </a>
+                  </div>
+                </div>
 
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-link"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    View Project →
-                  </a>
+                <div className="card-chevron-row">
+                  <span className={`card-chevron ${isOpen ? "open" : ""}`}>
+                    &#8964;
+                  </span>
                 </div>
               </div>
             </div>

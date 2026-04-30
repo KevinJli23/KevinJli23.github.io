@@ -9,7 +9,7 @@ const Home: React.FC = () => {
         <h2 className="home-role">Software Engineer</h2>
         <p className="home-sub">
           B.S. Software Engineering · UC Irvine<br />
-          Incoming M.S. Computer Science · UC Irvine
+          Master of Computer Science · UC Irvine
         </p>
         <div className="home-buttons">
           <a

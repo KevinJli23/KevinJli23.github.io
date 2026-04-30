@@ -84,40 +84,71 @@
   gap: 32px;
 }
 
-/* ── The Card (Fixed Height, Flexible Width) ────────────────── */
+/* ── The Card (Collapsed by default, expands on click) ──────── */
 .project-card {
   background: var(--project-surface);
   border: 1px solid var(--project-border);
   border-left: 8px solid #1D9E75;
   border-radius: 24px;
   padding: 40px;
-  
-  /* Vertical Constraint & Scroll */
-  height: 450px; /* Adjusted slightly taller to accommodate images */
-  overflow-y: auto;
-  
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: var(--project-shadow);
   box-sizing: border-box;
   cursor: pointer;
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
   box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.2);
+}
+
+/* ── More Detail Button ─────────────────────────────────────── */
+
+/* ── Bottom Chevron ─────────────────────────────────────────── */
+.card-chevron-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.card-chevron {
+  font-size: 22px;
+  color: var(--project-text-sub);
+  line-height: 1;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.card-chevron.open {
+  transform: rotate(180deg);
+}
+
+/* ── Expandable Content ─────────────────────────────────────── */
+.project-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-content-inner {
+  overflow: hidden;
+}
+
+.project-card.open .project-content {
+  grid-template-rows: 1fr;
 }
 
 /* ── Image ─────────────────────────────────────────────────── */
 .project-photo {
-  width: 100%;
+  width: 200px;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 12px;
-  margin-bottom: 20px;
-  border: 1px solid var(--project-border);
+  margin: 0 auto 20px auto;
   flex-shrink: 0;
+  display: block;
 }
 
 /* ── Content Typography ────────────────────────────────────── */
@@ -172,14 +203,6 @@
   text-decoration: underline;
 }
 
-/* ── Custom Scrollbar ─────────────────────────────────────── */
-.project-card::-webkit-scrollbar {
-  width: 6px;
-}
-.project-card::-webkit-scrollbar-thumb {
-  background: var(--project-border);
-  border-radius: 10px;
-}
 
 /* ── Responsive ────────────────────────────────────────────── */
 @media (max-width: 950px) {
@@ -193,8 +216,6 @@
   }
   
   .project-card {
-    height: auto;
-    min-height: 350px;
     padding: 32px;
   }
 }
