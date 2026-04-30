@@ -16,9 +16,9 @@ interface JobEntry {
 
 const experienceData: JobEntry[] = [
   { id: "1", title: "AI Agentic Builder Intern", company: "NeuralSeek", date: "Jul–Sept 2025", location: "Irvine, CA", type: "ai", label: "AI", bullets: ["Building autonomous agents for enterprise workflows."] },
-  { id: "2", title: "Software Engineer Intern", company: "Turion Space Systems", date: "Jan–Mar 2025", location: "Irvine, CA", type: "space", label: "Space Tech", bullets: ["Improved satellite task efficiency by 25%.", "Built 5+ ground control dashboards.", "Standardized UI development in React."] },
+  { id: "2", title: "Software Engineer Intern", company: "Turion Space Systems", date: "Jan 2025–Mar 2025", location: "Irvine, CA", type: "space", label: "Space Tech", bullets: ["Improved satellite task efficiency by 25%.", "Built 5+ ground control dashboards.", "Standardized UI development in React."] },
   { id: "3", title: "Network Operations Intern", company: "LADWP", date: "Aug 2024–Jun 2025", location: "Anaheim, CA", type: "network", label: "Networks", bullets: ["Automated 1,300+ network nodes via Python.", "Implemented real-time SMTP monitoring."] },
-  { id: "4", title: "Market Data Analysis Intern", company: "Econolite", date: "Jan–May 2024", location: "Anaheim, CA", type: "data", label: "Data", bullets: ["Analyzed 30,000+ invoices for clustering.", "Built responsive maps with Folium."] },
+  { id: "4", title: "Market Data Analysis Intern", company: "Econolite", date: "Jan 2024–May 2024", location: "Anaheim, CA", type: "data", label: "Data", bullets: ["Analyzed 30,000+ invoices for clustering.", "Built responsive maps with Folium."] },
   { id: "5", title: "Research Assistant", company: "UC Irvine", date: "Aug 2023–Feb 2025", location: "Irvine, CA", type: "research", label: "Research", bullets: ["Extracted clinical data for medical studies.", "Developed SQL queries for UCI Health."] },
   { id: "6", title: "Web Administrator", company: "Community Table", date: "Aug 2023–Sep 2024", location: "Irvine, CA", type: "web", label: "Web", bullets: ["Led development for 40+ members.", "Managed content and site performance."] },
   {

@@ -5,11 +5,11 @@
   "type": "module",
 
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "cd personal-website && npm run dev",
+    "build": "cd personal-website && npm run build",
+    "preview": "cd personal-website && npm run preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "cd personal-website && npm run deploy"
   },
 
   "dependencies": {
