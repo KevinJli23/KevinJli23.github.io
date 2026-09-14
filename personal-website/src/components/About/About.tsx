@@ -29,7 +29,7 @@ const About: React.FC = () => {
             <p className="about-body">
               I graduated with a <strong>Bachelor's Degree in Software Engineering</strong> with a{" "}
               <strong>Minor in Health Informatics</strong>. I am in pursuit of a{" "}
-              <strong>Master's of Computer Science</strong> (Expected Graduation Fall 2026).
+              <strong>Master's of Computer Science</strong> at UC Irvine with an AI/ML focus (expected December 2026).
             </p>
           </div>
         </div>
@@ -42,10 +42,11 @@ const About: React.FC = () => {
               </span>
             </div>
             <p className="about-body">
-              I have a great passion in learning and developing full stack applications. With a wide range of
-              experiences from <strong>network operations</strong> and <strong>satellite interfaces</strong> to designing <strong>marketing tools</strong>, I have
-              experience designing software tools from scratch to meet business needs and improve workflow and
-              data visibility across teams.
+              I build full-stack tools that replace manual work at organizations where the infrastructure matters. I am
+              currently a <strong>Software Engineer</strong> at the <strong>California Independent System Operator</strong>, where I built a
+              company-wide data lineage platform in <strong>Java, Spring Boot, Oracle, and React</strong>. Before that I worked on
+              <strong> network automation</strong> at <strong>LADWP</strong>, <strong>satellite telemetry interfaces</strong> at <strong>Turion Space</strong>, and
+              <strong> AI agents</strong> at <strong>NeuralSeek</strong>. The energy and utility sector is where I plan to stay.
             </p>
           </div>
         </div>
@@ -58,10 +59,11 @@ const About: React.FC = () => {
               </span>
             </div>
             <p className="about-body">
-              I enjoy learning new skills and studying a wide range of technology-based concepts such as <strong>cloud
-                computing</strong>,  <strong>full stack web development</strong>, and <strong>data analytics</strong>. My current course work is centered around
-              AI, ML, and Deep Learning. I am currently studying for the{" "}
-              <strong>AWS Certified Solutions Architect</strong> exam!
+              I like <strong>cloud computing</strong>, <strong>full-stack web development</strong>, and <strong>applied machine learning</strong>.
+              My graduate coursework covers <strong>deep learning</strong>, <strong>parallel and distributed computing</strong>, and
+              <strong> network security</strong>, and my recent projects include a multi-modal skin cancer classifier and a
+              multi-label chest X-ray model trained on 112,120 images. I am currently studying for the{" "}
+              <strong>AWS Certified Solutions Architect</strong> exam.
             </p>
           </div>
         </div>

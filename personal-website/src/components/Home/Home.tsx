@@ -8,8 +8,8 @@ const Home: React.FC = () => {
         <h1 className="home-name">Kevin Li</h1>
         <h2 className="home-role">Software Engineer</h2>
         <p className="home-sub">
-          B.S. Software Engineering · UC Irvine<br />
-          Master of Computer Science · UC Irvine
+          Master of Computer Science · UC Irvine (Dec 2026)<br />
+          Software Engineer · California Independent System Operator
         </p>
         <div className="home-buttons">
           <a
@@ -27,6 +27,14 @@ const Home: React.FC = () => {
             rel="noopener noreferrer"
           >
             GitHub
+          </a>
+          <a
+            className="home-btn"
+            href="/Kevin_Li_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Resume
           </a>
         </div>
       </div>

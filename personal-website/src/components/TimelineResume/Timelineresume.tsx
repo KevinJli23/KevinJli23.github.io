@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./TimelineResume.css";
+import "./Timelineresume.css";
 
-type JobType = "ai" | "space" | "network" | "data" | "research" | "web";
+type JobType = "fullstack" | "ai" | "space" | "network" | "data" | "research" | "web";
 
 interface JobEntry {
   id: string;
@@ -15,6 +15,21 @@ interface JobEntry {
 }
 
 const experienceData: JobEntry[] = [
+  {
+    id: "0",
+    title: "Software Engineer, Contract",
+    company: "California Independent System Operator (CAISO)",
+    date: "Jun 2026\u2013Present",
+    location: "Folsom, CA",
+    type: "fullstack",
+    label: "Full-Stack",
+    bullets: [
+      "Built and shipped a full-stack data lineage platform (Java 21, Spring Boot 4, Oracle/JDBC, React Flow) now deployed company-wide, cutting manual data tracing from 15 minutes to under a minute",
+      "Migrated the Node.js/Express backend to Spring Boot with Service/Repository/Controller layering and WAR packaging for enterprise deployment",
+      "Architected per-session routing across 5 Oracle environments using Spring AbstractRoutingDataSource, ThreadLocal context, and a servlet interceptor over lazily initialized HikariCP pools",
+      "Implemented two-tier role-based access control with Spring Method Security, server-side response filtering, and mirrored React route guards",
+    ],
+  },
   {
     id: "1",
     title: "AI Agentic Builder Intern",
@@ -32,7 +47,7 @@ const experienceData: JobEntry[] = [
   {
     id: "2",
     title: "Software Engineer Intern",
-    company: "Turion Space Systems",
+    company: "Turion Space",
     date: "Jan 2025–Mar 2025",
     location: "Irvine, CA",
     type: "space",
@@ -46,15 +61,15 @@ const experienceData: JobEntry[] = [
   },
   {
     id: "3",
-    title: "Network Operations Intern",
-    company: "LADWP",
+    title: "Software Engineering Intern",
+    company: "Los Angeles Department of Water and Power",
     date: "Aug 2024–Jun 2025",
-    location: "Anaheim, CA",
+    location: "Los Angeles, CA",
     type: "network",
     label: "Networks",
     bullets: [
-      "Developed a Python-based network monitoring tool to automate node traversal and document device configurations across enterprise infrastructure",
-      "Engineered a multithreaded service to collect data from 1,300+ devices, aggregating hardware configurations into structured reports",
+      "Automated network documentation across 1,300+ nodes by BFS-traversing CDP neighbors into an interactive subnet topology snapshot, replacing a manual process",
+      "Engineered a multi-threaded Python service that pulled configs from 800+ Cisco devices in under 15 minutes, cross-referencing MAC, ARP, and routing tables into port-to-interface reports",
       "Improved network reliability with event-driven error detection and SMTP alerts to proactively notify engineers of failures",
       "Configured CIP servers using vSphere and Remote Desktop, handling network setup, security hardening, and firewall configuration to enhance scalability and efficiency",
     ],
@@ -117,6 +132,7 @@ const experienceData: JobEntry[] = [
 ];
 
 const palette = {
+  fullstack: { bg: "#E6F1FB", text: "#0C447C", dot: "#2563EB" },
   ai: { bg: "#E1F5EE", text: "#085041", dot: "#1D9E75" },
   space: { bg: "#E1F5EE", text: "#085041", dot: "#1D9E75" },
   network: { bg: "#E6F1FB", text: "#0C447C", dot: "#378ADD" },
